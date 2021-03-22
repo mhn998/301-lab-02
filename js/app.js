@@ -1,4 +1,8 @@
 'use strict'
+let keywords = [];
+let renderArr = [];
+
+
 
 function Items(item) {
     this.image = item.image_url;
@@ -7,7 +11,14 @@ function Items(item) {
     this.keyword = item.keyword;
     this.horn = item.horns;
 
+    keywords.push(this.keyword);
+    renderArr.push(this);
+
+
+
 }
+
+
 
 Items.prototype.render = function() {
     // let photo_template = $('#photo-template').clone();
@@ -29,6 +40,7 @@ Items.prototype.render = function() {
 }
 
 
+
 const ajaxSettings = {
     method: 'get',
     dataType: 'json'
@@ -39,7 +51,40 @@ $.ajax('data/page-1.json', ajaxSettings)
     .then(data => {
         data.forEach(item => {
             let newItem = new Items(item);
-            console.log(newItem);
+            // console.log(newItem);
             newItem.render();
-        });
+        })
+        removeDuplicates();
+        appendKeywords();
+
     })
+
+let uniquekeyWords = [];
+
+function removeDuplicates() {
+
+    $.each(keywords, function(i, el) {
+        if ($.inArray(el, uniquekeyWords) === -1) uniquekeyWords.push(el);
+
+    });
+}
+
+function appendKeywords() {
+    for (let i = 0; i < uniquekeyWords.length; i++) {
+        let keyValue = uniquekeyWords[i];
+        $('select').append(`<option>${keyValue}</option>`);
+    }
+
+}
+
+let filtering = (event) => {
+    $('main').empty();
+    let selectKeyWord = event.target.value;
+    renderArr.forEach(elem => {
+        if (elem.keyword == selectKeyWord) {
+            elem.render();
+        }
+    })
+};
+
+$('select').on('change', filtering);
