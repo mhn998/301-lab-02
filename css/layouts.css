@@ -1,0 +1,29 @@
+header {
+    text-align: center;
+}
+
+main img {
+    width: 250px;
+    height: 200px;
+}
+
+main div {
+    float: left;
+    margin: 20px 0px;
+}
+
+main p {
+    width: 250px;
+    margin: 0 auto;
+}
+
+footer {
+    clear: both;
+    text-align: center;
+}
+
+#dragon,
+#lizard,
+#chameleon {
+    float: right;
+}

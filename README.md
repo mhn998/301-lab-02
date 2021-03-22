@@ -11,3 +11,27 @@ Start time: 3:30
 Finish time: 4:50
 
 Actual time needed to complete: 1:20 hour
+
+_________________________________
+
+Number and name of feature: feature 2
+
+Estimate of time needed to complete:1hr
+
+Start time: 4:55
+
+Finish time: 7
+
+Actual time needed to complete: 2hr
+
+________________________
+
+Number and name of feature: feature 3
+
+Estimate of time needed to complete:30mins
+
+Start time: 7
+
+Finish time: 8
+
+Actual time needed to complete: 1hr

@@ -1,0 +1,9 @@
+main p {
+    color: gray;
+    text-align: center;
+}
+
+main h2 {
+    text-align: center;
+    font-weight: 600;
+}
